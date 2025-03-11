@@ -10,7 +10,8 @@ from peft import (
     LoraConfig,
     get_peft_model,
     get_peft_model_state_dict,
-    prepare_model_for_int8_training,
+    # prepare_model_for_int8_training,
+    prepare_model_for_kbit_training,
     set_peft_model_state_dict,
 )
 
@@ -86,7 +87,8 @@ def main(
             torch_dtype=torch.float16,
             device_map="auto",
         )
-        model = prepare_model_for_int8_training(model)
+        model = prepare_model_for_kbit_training(model)
+        # model = prepare_model_for_int8_training(model)
         config = LoraConfig.from_pretrained(lora_config_path)
         lora_weights = torch.load(lora_weights_path)
         model = PeftModel(model, config)
