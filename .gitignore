@@ -1,3 +1,9 @@
 .idea/
 
 data/
+
+utils/__pycache__/
+utils/.ipynb_checkpoints/
+
+fed_utils/__pycache__/
+fed_utils/.ipynb_checkpoints/
